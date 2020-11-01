@@ -12,6 +12,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using E_BookStore.DataAccess.Data;
+using E_BookStore.DataAccess.Repository.IRepository;
+using E_BookStore.DataAccess.Repository;
+using Microsoft.AspNetCore.Identity.UI.Services;
+using E_BookStore.Services;
 
 namespace E_BookStore
 {
@@ -30,10 +34,14 @@ namespace E_BookStore
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDefaultIdentity<IdentityUser>()
+            services.AddIdentity<IdentityUser, IdentityRole>().AddDefaultTokenProviders()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+
+            services.AddSingleton<IEmailSender, EmailSender>();
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
             services.AddRazorPages();
+            //Inject Dependencies
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -58,7 +66,7 @@ namespace E_BookStore
             app.UseAuthentication();
             app.UseAuthorization();
 
-           
+
             app.UseEndpoints(endpoints =>
             {
 

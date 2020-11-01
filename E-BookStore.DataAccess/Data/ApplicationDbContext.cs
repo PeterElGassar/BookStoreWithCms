@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using E_BookStore.Models.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,6 +12,16 @@ namespace E_BookStore.DataAccess.Data
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
+
         }
+        public DbSet<Category> Categories { get; set; }
+
+        public DbSet<CoverType> CoverTypes { get; set; }
+
+        public DbSet<Book> Books { get; set; }
+
+        public DbSet<Company> Companies { get; set; }
+
+        public DbSet<AppUser> AppUsers { get; set; }
     }
 }

@@ -1,0 +1,41 @@
+﻿@model E_BookStore.Models.Models.CoverType
+@{
+    Layout = "";
+}
+
+<div class="row">
+
+    <div class="col-md-12 mx-auto">
+        <div class="alert alert-warning text-center ajax-ms">
+            <span class="font-weight-bold">Peter</span>
+        </div>
+    </div>
+    <div class="col-md-8 mx-auto">
+        <form asp-action="Upsert" id="upsert-form">
+            <input type="hidden" asp-for="Id" />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                @if (Model.Id > 0)
+                {
+                    <input type="button" value="Update" class="btn btn-outline-primary btn-submit" />
+                }
+                else
+                {
+                    <input type="button" value="Create" class="btn btn-outline-primary btn-submit" />
+                }
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+    <partial name="_ValidationScriptsPartial" />
+}

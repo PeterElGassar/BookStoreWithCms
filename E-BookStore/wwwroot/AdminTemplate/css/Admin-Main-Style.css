@@ -1,0 +1,15 @@
+﻿
+.ajax-ms{
+    visibility:hidden;
+    transition: 1.2s;
+    opacity:0;
+}
+
+.show-ajax-ms {
+    visibility: visible;
+    opacity: 1;
+}
+
+.ck-editor__editable_inline{
+    min-height: 300px !important;
+}

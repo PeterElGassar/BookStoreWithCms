@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using E_BookStore.Models.ViewModels;
+using E_BookStore.DataAccess.Repository.IRepository;
+using E_BookStore.Models.Models;
 
 namespace E_BookStore.Areas.Customer.Controllers
 {
@@ -13,15 +15,17 @@ namespace E_BookStore.Areas.Customer.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private readonly IUnitOfWork _unitOfWork;
+        public HomeController(ILogger<HomeController> logger, IUnitOfWork unitOfWork)
         {
             _logger = logger;
+            _unitOfWork = unitOfWork;
         }
 
         public IActionResult Index()
         {
-            return View();
+            IEnumerable<Book> books = _unitOfWork.Book.GetAll(includeProperties: "Category,CoverType");
+            return View(books);
         }
 
         public IActionResult Privacy()

@@ -1,0 +1,75 @@
+﻿@model E_BookStore.Models.Models.Company
+@{
+    Layout = "";
+}
+
+<div class="row">
+
+    <div class="col-md-12 mx-auto">
+        <div class="alert alert-warning text-center ajax-ms">
+            <span class="font-weight-bold">Peter</span>
+        </div>
+    </div>
+    <div class="col-md-8 mx-auto">
+        <form asp-action="Upsert" id="upsert-form">
+            <input type="hidden" asp-for="Id" />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="State" class="control-label"></label>
+                <input asp-for="State" class="form-control" />
+                <span asp-validation-for="State" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StreetAddress" class="control-label"></label>
+                <input asp-for="StreetAddress" class="form-control" />
+                <span asp-validation-for="StreetAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="City" class="control-label"></label>
+                <input asp-for="City" class="form-control" />
+                <span asp-validation-for="City" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PostalCode" class="control-label"></label>
+                <input asp-for="PostalCode" class="form-control" />
+                <span asp-validation-for="PostalCode" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="PhoneNumber" class="control-label"></label>
+                <input asp-for="PhoneNumber" class="form-control" />
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="IsVerifiedCompany" class="control-label"></label>
+                <input type="checkbox" asp-for="IsVerifiedCompany" class=" checkbox" />
+            </div>
+
+            <div class="form-group">
+                @if (Model.Id > 0)
+                {
+                    <input type="button" value="Update" class="btn btn-outline-primary btn-submit-company" />
+                }
+                else
+                {
+                    <input type="button" value="Create" class="btn btn-outline-primary btn-submit-company" />
+                }
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,49 +1,632 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - E_BookStore</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
+    <title>Book store</title>
+
+    <!--Font Awesome-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+          integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous" />
+
+    <!-- Faiv Icon -->
+    <link rel="title icon" href="~/CustomerTemplate/img/book-flat.png" />
+
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+
+    <!-- Reset File -->
+    <link rel="stylesheet" href="~/CustomerTemplate/Css/Reset.css" />
+
+    <!-- LightBox -->
+    <link rel="stylesheet" href="~/CustomerTemplate/Css/lightbox.css" />
+
+    <!-- Toastr -->
+    <link href="~/Toastr/toastr.css" rel="stylesheet" />
+    <!-- Main Style -->
+    <link rel="stylesheet" href="~/CustomerTemplate/Css/Main-Style.css" />
+    <!--Slick Carosel-->
+    <link href="~/CustomerTemplate/Css/slick.css" rel="stylesheet" />
+    <link href="~/CustomerTemplate/Css/slick-theme.css" rel="stylesheet" />
+
+    <link href="~/css/site.css" rel="stylesheet" />
 </head>
+
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+
+    <!--  Navigation -->
+    <nav class="navigation">
+        <button type="button" class="navbar-toggler hamburger-menu" data-toggle="collapse" data-target="#custome-navbar">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </button>
+        <div class="bg-cover">
+        </div>
+        <div class="collapse nav-content" id="custome-navbar">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-10 mx-auto">
+
+                        <a href="#" class="navbar-brand mt-3 d-block d-lg-none">
+                            <img src="/CustomerTemplate/img/book.png" width="120">
+                        </a>
+
+                        <ul class="navbar-nav text-capitalize flex-column flex-lg-row nav-justified">
+                            <li class="nav-item">
+                                <a href="/" class="nav-link m-lg-3 m-1 link-item">home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/admin/dashboard/Index" class="nav-link m-lg-3 m-1 link-item">DashBoard</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="#" class="nav-link m-lg-3 m-1 link-item">about us</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link m-lg-3 m-1 link-item">library</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link m-lg-3 m-1 link-item">deals</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link m-lg-3 m-1 link-item">reviews</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link m-lg-3 m-1 link-item">contact</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-10 col-lg-5 mx-auto">
+                        <form class="mt-4">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Search">
+                                <div class="input-group-append">
+                                    <button type="button" class="btn btn-default search-btn"><i class="fas fa-search"></i></button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">E_BookStore</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <partial name="_LoginPartial" />
-                    <ul class="navbar-nav flex-grow-1">
+
+                <div class="row my-5">
+                    <div class="col text-center">
+                        <h1 class="display-1 text-white">Your Chance</h1>
+                        <h3 class="text-capitalize text-light">get each book for $9.99</h3>
+                    </div>
+                </div>
+                <div class="row d-none d-lg-block">
+                    <div class="col text-center">
+                        <img src="/CustomerTemplate/img/book.png" width="550">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </nav>
+    <!--  End Navigation -->
+    <!--Header -->
+    <header class="d-flex align-items-center">
+        <div class="align-self-start position-absolute">
+            <a href="#"><img class="m-4 img-fluid" src="/CustomerTemplate/img/book.png" width="120" /></a>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col text-center">
+                    <h1 class="display-1 font-italic banner-header mb-5">
+                        We
+                        <img class="img-fluid" src="~/CustomerTemplate/img/heart.png" width="250" />
+                        Reading
+                    </h1>
+                    <a class="btn btn-lg btn-outline-danger px-3" href="#">Check Out</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!--End of Header -->
+    <!--Render Body -->
+    <div class="container-fluid">
+        <main role="main" class="p-2 p-md-3 p-xl-4">
+            @RenderBody()
+        </main>
+
+    </div>
+    <!--End Render Body -->
+    <!--Gallery -->
+    <section class="gallery">
+        <div class="container">
+            <div class="row">
+                <div class="col text-secondary text-center">
+                    <h2 class="section-title py-3 text-uppercase">
+                        the Best librarys in shop
+                    </h2>
+                </div>
+            </div>
+
+            <div class="row mb-4 align-items-end first-row">
+                <div class="col-12col-md-6 col-lg-3">
+                    <a href="~/CustomerTemplate/img/libraries/library1.jpg" data-lightbox="library-img" data-title="bla bla">
+                        <img src="~/CustomerTemplate/img/libraries/library1.jpg" class="img-thumbnail gallery-img" />
+                    </a>
+                </div>
+                <div class="col-12col-md-6 col-lg-3">
+                    <a href="~/CustomerTemplate/img/libraries/library2.jpg" data-lightbox="library-img" data-title="bla bla">
+                        <img src="~/CustomerTemplate/img/libraries/library2.jpg" class="img-thumbnail gallery-img" />
+                    </a>
+                </div>
+                <div class="col-12col-md-6 col-lg-3">
+                    <a href="~/CustomerTemplate/img/libraries/library3.jpg" data-lightbox="library-img" data-title="bla bla">
+                        <img src="~/CustomerTemplate/img/libraries/library3.jpg" class="img-thumbnail gallery-img" />
+                    </a>
+                </div>
+                <div class="col-12col-md-6 col-lg-3">
+                    <a href="~/CustomerTemplate/img/libraries/library4.jpg" data-lightbox="library-img" data-title="bla bla">
+                        <img src="~/CustomerTemplate/img/libraries/library4.jpg" class="img-thumbnail gallery-img" />
+                    </a>
+                </div>
+            </div>
+
+            <div class="row mb-4 align-items-end second-row">
+                <div class="col-12col-md-6 col-lg-3">
+                    <a href="~/CustomerTemplate/img/libraries/library5.jpg" data-lightbox="library-img" data-title="bla bla">
+                        <img src="~/CustomerTemplate/img/libraries/library5.jpg" class="img-thumbnail gallery-img" />
+                    </a>
+                </div>
+                <div class="col-12col-md-6 col-lg-3">
+                    <a href="~/CustomerTemplate/img/libraries/library6.jpg" data-lightbox="library-img" data-title="bla bla">
+                        <img src="~/CustomerTemplate/img/libraries/library6.jpg" class="img-thumbnail gallery-img" />
+                    </a>
+                </div>
+                <div class="col-12col-md-6 col-lg-3">
+                    <a href="~/CustomerTemplate/img/libraries/library7.jpg" data-lightbox="library-img" data-title="bla bla">
+                        <img src="~/CustomerTemplate/img/libraries/library7.jpg" class="img-thumbnail gallery-img" />
+                    </a>
+                </div>
+                <div class="col-12col-md-6 col-lg-3">
+                    <a href="~/CustomerTemplate/img/libraries/library8.jpg" data-lightbox="library-img" data-title="bla bla">
+                        <img src="~/CustomerTemplate/img/libraries/library8.jpg" class="img-thumbnail gallery-img" />
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--End of Gallery -->
+    <!--Famous Writers -->
+    <section class="famous-writer  py-4">
+        <div class="container-fluid">
+
+            <!-- section title -->
+            <div class="row d-block">
+                <div class="col text-secondary text-center py-5">
+                    <h2 class="section-title py-3 text-uppercase font-weight-bold text-dark">
+                        the most fumous Writers in shop
+                    </h2>
+                </div>
+                <!-- end ofsection title -->
+                <!-- Accordion -->
+                <div class="row justify-content-center">
+                    <div class="px-5 mb-2 col-lg-4 text-center align-self-center">
+                        <a href="#"><img src="~/CustomerTemplate/img/writers/William_Shakespeare-book1.jpg" id="book-1"></a>
+                    </div>
+                    <!-- Accordion -->
+                    <div class="px-5 mb-2 col-lg-4 ">
+                        <!--  Writers -->
+                        <div id="accordion" class="writers-accordion px-sm-4">
+
+                            <div class="card">
+                                <div class="card-header p-5">
+                                    <button type="button" id="william-btn" class="btn btn-outline-danger btn-block" data-toggle="collapse"
+                                            data-target="#collapseOne">
+                                        William Shakespar
+                                    </button>
+                                </div>
+
+                                <div class="collapse show" id="collapseOne" data-parent="#accordion">
+                                    <div class="card-body">
+                                        <div class="card">
+                                            <img class="img-fluid card-img-top" src="~/CustomerTemplate/img/writers/William_Shakespeare.jpg">
+                                            <div class="card-body">
+                                                <p>
+                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui libero voluptatum deserunt
+                                                    inventore voluptatem maxime?
+                                                </p>
+                                                <button type="button" class="btn btn-block btn-primary">More books</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="card">
+                                <div class="card-header p-5">
+                                    <button type="button" id="jane-btn" class="btn btn-outline-danger btn-block" data-toggle="collapse"
+                                            data-target="#collapseTow">
+                                        JaneAusten
+                                    </button>
+                                </div>
+
+                                <div class="collapse" id="collapseTow" data-parent="#accordion">
+                                    <div class="card-body">
+                                        <div class="card">
+                                            <img class="img-fluid card-img-top" src="~/CustomerTemplate/img/writers/Jane_Austen.jpg">
+                                            <div class="card-body">
+                                                <p>
+                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui libero voluptatum deserunt
+                                                    inventore voluptatem maxime?
+                                                </p>
+                                                <button class="btn btn-block btn-primary">More books</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="card">
+                                <div class="card-header p-5">
+                                    <button type="button" id="Charles-btn" class="btn btn-outline-danger btn-block" data-toggle="collapse"
+                                            data-target="#collapseThree">
+                                        Charles Dicken
+                                    </button>
+                                </div>
+
+                                <div class="collapse" id="collapseThree" data-parent="#accordion">
+                                    <div class="card-body">
+                                        <div class="card">
+                                            <img class="img-fluid card-img-top" src="~/CustomerTemplate/img/writers/Charles_Dickens.jpg">
+                                            <div class="card-body">
+                                                <p>
+                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui libero voluptatum deserunt
+                                                    inventore voluptatem maxime?
+                                                </p>
+                                                <button type="button" class="btn btn-block btn-primary">More books</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                            <div class="card">
+                                <div class="card-header p-5">
+                                    <button type="button" id="victor-btn" class="btn btn-outline-danger btn-block" data-toggle="collapse"
+                                            data-target="#collapseFour">
+                                        Victor Hugo
+                                    </button>
+                                </div>
+
+                                <div class="collapse" id="collapseFour" data-parent="#accordion">
+                                    <div class="card-body">
+                                        <div class="card">
+                                            <img class="img-fluid card-img-top" src="~/CustomerTemplate/img/writers/Victor_Hugo.jpg">
+                                            <div class="card-body">
+                                                <p>
+                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui libero voluptatum deserunt
+                                                    inventore voluptatem maxime?
+                                                </p>
+                                                <button class="btn btn-block btn-primary">More books</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="my-3"><a href="#" class="btn btn-outline-info btn-block">More Writers</a></div>
+                        </div>
+                        <!-- end  Writers -->
+
+
+
+                    </div>
+                    <!-- End of Accordion -->
+
+                    <div class="px-5 mb-2 col-lg-4 text-center align-self-center">
+                        <a href="#"><img src="~/CustomerTemplate/img/writers/William_Shakespeare-book2.jpg" class="img-fluid" id="book-2"></a>
+                    </div>
+
+                </div>
+
+                <!-- End of Accordion -->
+
+            </div>
+
+
+    </section>
+    <!--End of Famous Writers -->
+    <!-- Suggested Books -->
+    <section class="suggested-books">
+        <div class="container-fliud">
+            <!-- section title -->
+            <div class="row d-block">
+                <div class="col text-secondary text-center">
+                    <h2 class="section-title py-3 text-uppercase font-weight-bold  text-light">
+                        Suggested Books
+                    </h2>
+                </div>
+                <!-- end ofsection title -->
+                <div class="row">
+                    <div class="col-lg-6 col-md-8 col-sm-10 mx-auto books">
+                        <a href="#"><img src="~/CustomerTemplate/img/suggested-books/book1.jpg" class="img-fluid book book-1"></a>
+                        <a href="#"><img src="~/CustomerTemplate/img/suggested-books/book2.jpg" class="img-fluid book book-2"></a>
+                        <a href="#"><img src="~/CustomerTemplate/img/suggested-books/book3.jpg" class="img-fluid book book-3"></a>
+                        <a href="#"><img src="~/CustomerTemplate/img/suggested-books/book4.jpg" class="img-fluid book book-4"></a>
+
+
+                    </div>
+                </div>
+            </div>
+    </section>
+    <!-- End of Suggested Books -->
+    <!-- Popular books -->
+    <section class="popular-books pm-4">
+        <div class="video-container">
+            <video class="bg-video" autoplay muted loop>
+                <source src="~/CustomerTemplate/video/coverr-girl-reading.mp4" type="video/mp4">
+                <source src="~/CustomerTemplate/video/Lulu_latte.webm" type="video/webm">
+                Your browser is not supported
+
+            </video>
+
+        </div>
+        <div class="container-fluid ">
+            <!-- section title -->
+            <div class="row d-block justify-content-around">
+                <div class="col text-secondary text-center py-5 ">
+                    <h2 class=" section-title py-3 text-uppercase font-weight-bold text-dark">
+                        The most popular books of week
+                    </h2>
+                </div>
+                <!-- end of section title -->
+
+                <div class="row p-5 justify-content-around">
+                    <div class="col-8 col-md-4 mx-md-auto col-xl-3 rotate">
+                        <div class="card  text-center mb-3 book-card">
+                            <div class="card-header">
+                                <h4>A Tale of Two Cities</h4>
+                            </div>
+                            <div class="card-body">
+                                <img src="~/CustomerTemplate/img/Popular-Books/A-Tale-of-Two-Cities.jpg" class="img-fluid rounded">
+                            </div>
+                            <div class="card-footer">
+                                By Charles Dickens
+                            </div>
+                            <div class="back-side">
+                                <div class="back-content ">
+                                    <h1 class="text-uppercase font-weight-light font-italic">Only for</h1>
+
+                                    <h3 class="mb-3">$20</h3>
+                                    <p><del>$35</del></p>
+                                    <a href="#" class="btn btn-outline-danger mb-2">Buy Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-8 col-md-4 mx-md-auto col-xl-3 rotate">
+                        <div class="card  text-center mb-3 book-card">
+                            <div class="card-header">
+                                <h4>Don Quixote</h4>
+                            </div>
+                            <div class="card-body">
+                                <img src="~/CustomerTemplate/img/Popular-Books/Don-Quixote.jpg" class="img-fluid rounded">
+                            </div>
+                            <div class="card-footer">
+                                By Charles Dickens
+                            </div>
+                            <div class="back-side">
+                                <div class="back-content">
+                                    <h1 class="text-uppercase font-weight-light font-italic">Only for</h1>
+
+                                    <h3 class="mb-3">$20</h3>
+                                    <p><del>$35</del></p>
+                                    <a href="#" class="btn btn-outline-danger mb-2">Buy Now</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-8 col-md-4 mx-md-auto col-xl-3 rotate">
+                        <div class="card  text-center mb-3 book-card">
+                            <div class="card-header">
+                                <h4>One Hundred Years of Solitude</h4>
+                            </div>
+                            <div class="card-body">
+                                <img src="~/CustomerTemplate/img/Popular-Books/One-Hundred-Years-of-Solitude.jpg" class="img-fluid rounded">
+                            </div>
+
+                            <div class="card-footer">
+                                By Charles Dickens
+                            </div>
+                            <div class="back-side">
+                                <div class="back-content">
+                                    <h1 class="text-uppercase font-weight-light font-italic">Only for</h1>
+
+                                    <h3 class="mb-3">$20</h3>
+                                    <p><del>$35</del></p>
+                                    <a href="#" class="btn btn-outline-danger mb-2">Buy Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+    </section>
+    <!-- End of Popular books -->
+    <!-- Content -->
+    <section class="content py-5">
+        <div class="container-fluid">
+            <div class="row text-light text-center">
+                <div class="col-10 col-md-8 col-xl-5 mx-auto">
+                    <div class="row items-wrapper py-3">
+                        <div class="col-8 col-sm-5 my-4 mx-auto floating-item first-item mr-3 p-2">
+                            <a href="#"><i class="mr-2 fab fa-linkedin"></i>Connect by linkedIn</a>
+                        </div>
+                        <div class="col-8 col-sm-5 my-4 mx-auto floating-item seconde-item p-2">
+                            <a href="#"><i class="mr-2 fab fa-facebook"></i>2K share</a>
+                        </div>
+                        <div class="col-8 col-sm-5 my-4 mx-auto floating-item third-item mr-3">
+                            <h4 class="py-2">New Books</h4>
+                            <p>Introduce to New Stories</p>
+                            <a class="text-danger mr-3" href="#">More Books</a>
+                            <a class="text-danger" href="#">popular Books</a>
+                        </div>
+                        <div class="col-8 col-sm-5 my-4 mx-auto floating-item fourth-item">
+                            <p>Sale will be expired soon</p>
+                            <a class="text-danger" href="#">Buy Now</a>
+
+                        </div>
+                        <div class="col-8 col-sm-5 my-4 mx-auto floating-item fifth-item">
+                            <i class="fas fa-book">Read online</i>
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-10 col-md-8 col-xl-5 mx-auto mt-4">
+
+                    <h4 class="text-light font-weight-light text-center mb-5">
+                        Stay Connected
+                    </h4>
+
+                    <div class="row">
+                        <div class="col-12">
+                            <form class="contact-form">
+                                <div class="form-group">
+                                    <input type="text" placeholder="Name" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" placeholder="Email" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <textarea type="text" class="form-control" rows="4" placeholder="Message"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-outline-danger btn-block">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--End of Content -->
+    <!-- Footer -->
+    <footer class="bg-dark">
+        <div class="container-fluid">
+            <h2 class="text-light text-center py-4">Become Our Member</h2>
+            <div class="row">
+                <div class="col-10 col-sm-8 mb-3 mx-auto email-box">
+                    <form class="form-inline p-sm-5 mb-sm-3">
+                        <input type="text" placeholder="Email" class="w-50 form-control m-auto">
+                        <button type="submit" class="btn btn-outline-danger w-25 btn-block m-auto">Sign Up</button>
+                    </form>
+                </div>
+            </div>
+            <!-- social media icons -->
+            <div class="row">
+                <div class="col text-center">
+                    <div class="mb-2">
+                        <a href="#"><i class="fab fa-facebook fa-2x mx-4 text-primary"></i></a>
+                        <a href="#"><i class="fab fa-twitter fa-2x mx-4 text-info"></i></a>
+                        <a href="#"><i class="fab fa-instagram fa-2x mx-4 text-danger"></i></a>
+                        <a href="#"><i class="fab fa-facebook fa-2x mx-4 text-info"></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- End social media icons -->
+        </div>
+
+        <div class="continer">
+            <div class="row">
+                <div class="col mb-4">
+                    <ul class="nav justify-content-center nav-tabs">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a href="/" class="nav-link text-light">
+                                Home
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-light">
+                                About us
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a href="#" class="nav-link text-light">
+                                Library
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-light">
+                                Reviews
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-light">
+                                Content
+                            </a>
                         </li>
                     </ul>
                 </div>
             </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
-
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2020 - E_BookStore - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            <div class="row">
+                <div class="col text-light text-center">
+                    <p>&copy; CopyRight 2020. Made By Peter El-Gassar</p>
+                </div>
+            </div>
         </div>
     </footer>
+    <!-- End of Footer -->
+    <!--jQery-->
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Popper.js -->
+    <script src="~/CustomerTemplate/js/Popper.js"></script>
+    <!-- Bootstrap.js -->
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+
+    <!--site-->
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <!--Sweetalert-->
+    @*<script src="~/Sweetalert/sweetalert.min.js"></script>*@
+
+    <!--Toastr-->
+    <script src="~/Toastr/toastr.js"></script>
+    <!-- LightBox -->
+    <script src="~/CustomerTemplate/js/lightbox.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@@tensorflow/tfjs/dist/tf.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <!-- private javascript -->
+    <script src="~/CustomerTemplate/js/mainScript.js"></script>
+    <!--Slick Carosel-->
+    <script src="~/CustomerTemplate/js/slick.js"></script>
     @RenderSection("Scripts", required: false)
 </body>
+
+
+
 </html>
+
+
+
+
+
+
+
+

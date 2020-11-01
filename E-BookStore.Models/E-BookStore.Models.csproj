@@ -5,4 +5,9 @@
     <RootNamespace>E_BookStore.Models</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.ViewFeatures" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Identity.Stores" Version="3.1.9" />
+  </ItemGroup>
+
 </Project>
