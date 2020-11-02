@@ -2,25 +2,24 @@
     display: block;
 }
 
-.pagination {
-    float: right;
-}
-
-
 #coverType-table_wrapper {
     display: block;
 }
-
 
 #books-table_wrapper {
     display: block;
 }
 
-
 #company-table_wrapper {
     display: block;
 }
 
-#company-table_wrapper.pagination {
-  float: right;
+#users-table_wrapper {
+    display: block;
 }
+
+
+.pagination {
+    float: right;
+}
+

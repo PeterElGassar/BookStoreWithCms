@@ -2,7 +2,7 @@
 var CompanyController = function (companyService) {
 
     var initFunc = function () {
-        debugger
+        
         companyService.init();
     };
 
@@ -34,7 +34,7 @@ var CompanyController = function (companyService) {
 
     var deleteCompany = function () {
         $(document).on("click", ".js-del-company", (e) => {
-            debugger
+            
             var companyId = $(e.target).data("id");
             console.log($(e.target))
 

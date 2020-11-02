@@ -65,18 +65,20 @@
                             <li class="nav-item">
                                 <a href="#" class="nav-link m-lg-3 m-1 link-item">about us</a>
                             </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link m-lg-3 m-1 link-item">library</a>
+                            @*<li class="nav-item">
+                                <a asp-area="Identity" asp-page="/Account/Register" class="nav-link m-lg-3 m-1 link-item">Register</a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link m-lg-3 m-1 link-item">deals</a>
-                            </li>
+                                <a asp-area="Identity" asp-page="/Account/Login" class="nav-link m-lg-3 m-1 link-item">Login</a>
+                            </li>*@
                             <li class="nav-item">
                                 <a href="#" class="nav-link m-lg-3 m-1 link-item">reviews</a>
                             </li>
                             <li class="nav-item">
                                 <a href="#" class="nav-link m-lg-3 m-1 link-item">contact</a>
                             </li>
+                            
+                            <partial name="_LoginPartial"/>
                         </ul>
                     </div>
 

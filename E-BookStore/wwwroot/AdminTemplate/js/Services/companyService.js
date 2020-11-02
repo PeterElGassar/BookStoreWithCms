@@ -1,7 +1,7 @@
 ﻿var CompanyService = function (notificationsService) {
     let companyTable;
+
     var init = function () {
-        debugger;
         companyTable = $("#company-table").DataTable({
             ajax: {
                 url: '/admin/Company/GetAllCompanies',

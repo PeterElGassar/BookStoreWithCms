@@ -99,10 +99,10 @@
                     <li class="menu-list">
                         <a href="javascript:;"><i class="mdi mdi-table"></i> <span>Tables</span></a>
                         <ul class="child-list">
-                            <li><a href="tables-basic.html"> Basic Table</a></li>
-                            <li><a href="tables-datatable.html"> Data Table</a></li>
-                            <li><a href="tables-editable.html"> Editable </a></li>
-                            <li><a href="tables-responsive.html"> Responsive Table </a></li>
+                            <li><a asp-area="Admin" asp-controller="Book" asp-action="Index">Books </a></li>
+                            <li><a asp-area="Admin" asp-controller="User" asp-action="Index">Users</a></li>
+                            <li><a asp-area="Admin" asp-controller="Category" asp-action="Index">Categories</a></li>
+                            <li><a asp-area="Admin" asp-controller="CoverType" asp-action="Index">Cover Types</a></li>
                         </ul>
                     </li>
                     <li class="menu-list">
@@ -728,6 +728,9 @@
     <!---Category-->
     <script src="~/AdminTemplate/js/Services/companyService.js"></script>
     <script src="~/AdminTemplate/js/Controllers/companyController.js"></script>
+    <!---User-->
+    <script src="~/AdminTemplate/js/Services/UserService .js"></script>
+    <script src="~/AdminTemplate/js/Controllers/UserController.js"></script>
 
     <script src="~/AdminTemplate/js/adminScript.js"></script>
 

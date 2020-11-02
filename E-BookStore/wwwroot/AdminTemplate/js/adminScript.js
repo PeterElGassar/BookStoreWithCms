@@ -17,8 +17,9 @@ CompanyController.PopupUpsertFormFunc();
 CompanyController.SubmitFormFunc();
 CompanyController.DeleteCompany();
 
-
-
+//Company
+UserController.InitFunc()
+UserController.lockAndUnockUser();
 
 
 

@@ -80,11 +80,20 @@ namespace E_BookStore.Areas.Identity.Pages.Account
             public string PhoneNumber { get; set; }
             public string Role { get; set; }
             public int? CompanyId { get; set; }
+
+            public IEnumerable<IdentityRole> Roles { get; set; }
+            public IEnumerable<Company> Companies { get; set; }
+
         }
 
         public async Task OnGetAsync(string returnUrl = null)
         {
             ReturnUrl = returnUrl;
+            Input = new InputModel()
+            {
+                Companies = _unitOfWork.Company.GetAll().ToList(),
+                Roles = _roleManager.Roles.Where(r => r.Name != SD.Role_User_Indi)
+            };
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
         }
 
@@ -140,7 +149,18 @@ namespace E_BookStore.Areas.Identity.Pages.Account
                     }
                     #endregion
 
-                    await _userManager.AddToRoleAsync(user, SD.Role_Admin);
+                    if (Input.Role == null)
+                    {
+                        await _userManager.AddToRoleAsync(user, SD.Role_User_Indi);
+                    }
+                    else
+                    {
+                        if (Input.CompanyId > 0)
+                        {
+                            await _userManager.AddToRoleAsync(user, SD.Role_User_Comp);
+                        }
+                        await _userManager.AddToRoleAsync(user, user.Role);
+                    }
                     //var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     //code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
                     //var callbackUrl = Url.Page(
@@ -158,8 +178,15 @@ namespace E_BookStore.Areas.Identity.Pages.Account
                     }
                     else
                     {
-                        await _signInManager.SignInAsync(user, isPersistent: false);
-                        return LocalRedirect(returnUrl);
+                        if (user.Role == null)
+                        {
+                            await _signInManager.SignInAsync(user, isPersistent: false);
+                            return LocalRedirect(returnUrl);
+                        }
+                        else
+                        {
+                            return RedirectToAction("Index", "User", new { Area = "Admin" });
+                        }
                     }
                 }
                 foreach (var error in result.Errors)

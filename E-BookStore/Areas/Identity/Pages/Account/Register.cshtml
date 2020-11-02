@@ -1,5 +1,6 @@
 ﻿@page
 @model RegisterModel
+@using E_BookStore.Services
 @{
     ViewData["Title"] = "Register";
 }
@@ -49,6 +50,22 @@
                 <input asp-for="Input.PostalCode" class="form-control" />
                 <span asp-validation-for="Input.PostalCode" class="text-danger"></span>
             </div>
+
+            @if (User.IsInRole(SD.Role_Admin))
+            {
+
+                <!---DropDown Lists-->
+                <div class="form-group">
+                    <label >Customer Company</label>
+                    @Html.DropDownListFor(model => model.Input.CompanyId, new SelectList(Model.Input.Companies, "Id", "Name"), "-Select Company-", new { @class = "form-control" })
+                </div>
+
+                <div class="form-group">
+                    <label>Role</label>
+                    @Html.DropDownListFor(model => model.Input.Role, new SelectList(Model.Input.Roles, "Name", "Name"), "-Select Role-", new { @class = "form-control" })
+                </div>
+                <!---End DropDown Lists-->
+            }
 
             <div class="form-group">
                 <label asp-for="Input.Password"></label>

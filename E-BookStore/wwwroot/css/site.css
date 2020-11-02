@@ -23,3 +23,13 @@
     height:222px;
     width:161px;
 }
+
+.submitLink {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.submitLink:focus {
+    outline: none;
+}
